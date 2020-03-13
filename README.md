@@ -38,7 +38,7 @@ Ultimately, I chose to centre this project around web data and Queensland
 real estate. The task was a simple but challenging enough - extract and format
 data from domain.com.au and package it into a user-friendly experience.
 
-##FEATURES AND FUNCTIONALITY
+## FEATURES AND FUNCTIONALITY
 ###  Search Results
 The core feature of this app is a search tool that returns filtered results
 according to the user's input. The user will input the suburb, postcode
