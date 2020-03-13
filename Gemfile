@@ -17,3 +17,5 @@ gem "daru", "~> 0.2.2"
 gem "daru-view", "~> 0.2.5"
 
 gem "googlecharts", "~> 1.6"
+
+gem "test-unit", "~> 3.3"

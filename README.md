@@ -1,5 +1,7 @@
 #Installation
+
 Please see help file located in the docs folder
+
 # PURPOSE AND SCOPE
 
 House Search is an application that allows the user to research the rental
@@ -22,7 +24,7 @@ House Search is an application that allows the user to research the rental
  test-driven development, source-control, planning and design apply the styles
   and conventions of Ruby and run without error.
 
-##MOTIVATION
+## MOTIVATION
 
 When looking at possible ideas for this project I narrowed the scope around 
 data as this was a topic in technology that I was interested in.
@@ -71,7 +73,7 @@ of the search are returned ```csv.open()``` is called taking the filename, and
 the preferred separator as arguments. After the ```.open()``` is called  a csv file
  is created and added to the directory.
 
-###User Experience
+### User Experience
 When the app is launched the user is greeted with a friendly message asking for 
 their desired suburb they would like to search. This is followed by a request for
 the postcode and then the max price. Provided inputs are correct a message will 
@@ -108,13 +110,13 @@ For more info on the trello board please visit the link below or see
 
 [trello board](https://trello.com/b/D4OutWKB/housesearch "trello board")
 
-#App structure
+# App structure
 House_search has one main entry point of ```domainscrape.rb``` when the 
 program is run using ```ruby domainscrape.rb``` the main ```def scraper``` method
 is run. This method is responsible for taking user input, crawling the URL
 and returning the ```houses.csv``` file.
 
-###Variables, objects and their uses
+### Variables, objects and their uses
 ```$file``` stores the houses.csv file that will be created after the main
 method is run
 
@@ -140,7 +142,8 @@ displayed
 ```house_array``` creates an array of ```house_listings``` and pushes all
 results onto the end of the array.
 
-#Ruby Gems
+# Ruby Gems
+
 Httparty is used to get the unparsed url
 
 Nokogiri is used to convert the url to a nokogiri html document
@@ -151,7 +154,7 @@ record of their search
 byebug was used during the development process to assist with debugging
 an unexpected crashes.
 
-#Issues encountered 
+# Issues encountered 
 During the early stages of development I switch IDEs to use RubyMine
 as opposed to VSCode. RubyMine is free for students or for a 30 day free
 trial and is purpose built for ruby development. This switch provided better
@@ -160,4 +163,18 @@ intellisense and method definitions.
 When developing the application the most difficult problem to overcome
 was finding the correct css selectors to get the data from. This required
 inspecting the website and digging for the correct selectors. This was
-difficult as a lot of them were nested deep inside the html
+difficult as a lot of them were nested deep inside the html. This posed
+the biggest challenge and much of the complimentary features had to be
+put on hold in order to fix the problem not getting any data returned.
+
+# Accessibility
+
+The application is designed for a user who is searching for properties
+for the first time. The prompts guide the user to make an informed decision
+and narrow the scope of their search. One aspect of the application that
+can be confusing for some users is the amount of time taken to create the
+file and display the results.
+
+# Testing
+Testing applications was the most daunting task of the development process
+as I was unfamiliar with testing techniques.
