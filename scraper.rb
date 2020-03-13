@@ -4,6 +4,7 @@ require 'byebug'
 require 'httparty'
 require 'daru'
 require 'daru/view'
+require 'tty-font'
 
 class Scraper
   def initializer
