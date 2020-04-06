@@ -53,14 +53,6 @@
 # url   = "https://www.domain.com.au/rent/#{suburb_input}-qld-4034/?price=0-#{max_price_input}"
 
 # end
-def putsthis
-url1 = "https://www.domain.com.au/rent/#{suburb_input}"
-url2 = "-qld-#{post_code_input}/"
-url3 = "?price=0-#{max_price_input}"
-$url   = url1 + url2 + url3
-puts $url
-end
-putsthis
 
 
 #ONE MORE GEM TO INSTALL
