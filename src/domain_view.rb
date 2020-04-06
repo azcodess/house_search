@@ -1,3 +1,11 @@
+
+# puts CSV.read(@lc_file.file.path)
+# or one row at a time:
+
+# CSV.foreach(@lc_file.file.path) do |row|
+#   puts row
+# end
+
 # class DomainView
 #     def greeting
 #         #user prompt to get information for URL
