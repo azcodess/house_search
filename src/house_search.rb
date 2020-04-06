@@ -72,6 +72,7 @@ def get_aspley_data
     data = house_listings_data.map{ |d| d.to_csv(col_sep: "|") }.join
     f.write(data)
   end
+  search_complete
 end
 
 def get_zillmere_data
@@ -137,31 +138,31 @@ def get_windsor_data
       csv << [prop_type, price, suburb_address]
         end
     end
+end
+
+
+def search_complete
+  puts "would you like to search again? y/n"
+  repeat_search = input
+  while repeat_search
+    case repeat_search
+    when "y"
+      suburb_input
+      break
+    when "n"
+      goodbye
+      break
+    else
+      puts "invalid input please type yes or no :)"
+    end
   end
 end
+
 
 def goodbye
   puts "Thanks for using - "
   puts $font.write("House Search")
-end
-
-def search_complete
-  puts "would you like to search again?"
-  repeat_search = input
-  while repeat_search
-    case repeat_search
-    when "yes"
-      suburb_input
-      break
-    when "no"
-      goodbye
-      puts $font.write("house search")
-      break
-    else
-      puts "invalid input please type yes or no :)"
-      
-    end
-  end
+  exit
 end
 
 def input
