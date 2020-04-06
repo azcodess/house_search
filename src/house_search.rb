@@ -81,6 +81,9 @@ def get_zillmere_data
   unparsed_page = HTTParty.get(url)
   parsed_page    = Nokogiri::HTML(unparsed_page)
 
+  unparsed_page = HTTParty.get(url)
+  parsed_page    = Nokogiri::HTML(unparsed_page)
+  house_listings_data = []
   house_listings = parsed_page.css('.listing-result__details')
   house_listings.each do |hl|
     prop_type      = hl.css('.listing-result__property-type')[0]
@@ -89,13 +92,15 @@ def get_zillmere_data
 
     house_array = [house_listings]
     house_array.push("#{prop_type} #{price}")
-
-    p prop_type + price
-
-    CSV.open($zillmere_file, "ab", {:col_sep => "|"}) do |csv|
-      csv << [prop_type, price, suburb_address]
-        end
-    end
+    
+    house_listings_data << [prop_type, price, suburb_address]
+    puts [prop_type, price, suburb_address].to_csv(col_sep: "|")
+  end
+  File.open($zillmere_file, "ab") do |f|
+    data = house_listings_data.map{ |d| d.to_csv(col_sep: "|") }.join
+    f.write(data)
+  end
+  search_complete
 end
 
 def get_carseldine_data
@@ -104,6 +109,9 @@ def get_carseldine_data
   unparsed_page = HTTParty.get(url)
   parsed_page    = Nokogiri::HTML(unparsed_page)
 
+  unparsed_page = HTTParty.get(url)
+  parsed_page    = Nokogiri::HTML(unparsed_page)
+  house_listings_data = []
   house_listings = parsed_page.css('.listing-result__details')
   house_listings.each do |hl|
     prop_type      = hl.css('.listing-result__property-type')[0]
@@ -112,11 +120,15 @@ def get_carseldine_data
 
     house_array = [house_listings]
     house_array.push("#{prop_type} #{price}")
-
-      CSV.open($carseldine_file, "ab", {:col_sep => "|"}) do |csv|
-      csv << [prop_type, price, suburb_address]
-        end
-    end
+    
+    house_listings_data << [prop_type, price, suburb_address]
+    puts [prop_type, price, suburb_address].to_csv(col_sep: "|")
+  end
+  File.open($carseldine_file, "ab") do |f|
+    data = house_listings_data.map{ |d| d.to_csv(col_sep: "|") }.join
+    f.write(data)
+  end
+  search_complete
 end
 
 def get_windsor_data
@@ -125,6 +137,9 @@ def get_windsor_data
   unparsed_page = HTTParty.get(url)
   parsed_page    = Nokogiri::HTML(unparsed_page)
 
+  unparsed_page = HTTParty.get(url)
+  parsed_page    = Nokogiri::HTML(unparsed_page)
+  house_listings_data = []
   house_listings = parsed_page.css('.listing-result__details')
   house_listings.each do |hl|
     prop_type      = hl.css('.listing-result__property-type')[0]
@@ -133,11 +148,15 @@ def get_windsor_data
 
     house_array = [house_listings]
     house_array.push("#{prop_type} #{price}")
-
-      CSV.open($windsor_file, "ab", {:col_sep => "|"}) do |csv|
-      csv << [prop_type, price, suburb_address]
-        end
-    end
+    
+    house_listings_data << [prop_type, price, suburb_address]
+    puts [prop_type, price, suburb_address].to_csv(col_sep: "|")
+  end
+  File.open($windsor_file, "ab") do |f|
+    data = house_listings_data.map{ |d| d.to_csv(col_sep: "|") }.join
+    f.write(data)
+  end
+  search_complete
 end
 
 
@@ -154,6 +173,7 @@ def search_complete
       break
     else
       puts "invalid input please type yes or no :)"
+      suburb_input
     end
   end
 end
