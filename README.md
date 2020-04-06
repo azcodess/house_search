@@ -5,10 +5,9 @@ Please see help file located in the docs folder
 # PURPOSE AND SCOPE
 
 House Search is an application that allows the user to research the rental
-property market in the Queensland area. The user will input the suburb,
-postcode and maximum price and get back results that match their input.
-The application is packaged as a friendly helper in order to guide the user
-to their preferred result.
+property market in the Queensland area. The user will choose from four options
+on the screen in order to progress. Each choice is a suburb in Brisbane and 
+the choice will correspond to the search.
 
 Searching for the right home can be daunting and some may feel uncomfortable
 doing it for the first time. In order to solve this problem the user should
@@ -65,18 +64,18 @@ After the results are returned the application then saves the results in four se
 file. This is done using the ruby gem csv. When the results
 of the search are returned `csv.open()` is called taking the filename, and
 the preferred separator as arguments. After the `.open()` is called a csv file
-is created and added to the directory.
+is created and added to the directory. In addition the data from the csv file will appear on the 
+terminal displaying it to the user.
 
 ### Error Handling
 Error handling is done implicitly by the program by catching any invalid input by the user.
 
 ### User Experience
 
-When the app is launched the user is greeted with a friendly message asking for
-their desired suburb they would like to search. This is followed by a request for
-the postcode and then the max price. Provided inputs are correct a message will
-popup detailing the actions just performed saying that the `houses.csv`
-file will appear in the directory once all data is returned.
+When the app is launched the user is greeted with a friendly message asking to choose one of 
+the four suburbs. After the search is completed another prompt comes up to either keep searching or 
+quit. If they continue to search they will be taken back to the main menu where they can make their
+choice again. If they choose to leave a farewell message will appear.
 
 # Implementation Plan
 
@@ -117,8 +116,13 @@ and returning the `houses.csv` file.
 
 ### Variables, objects and their uses
 
-`$file` stores the houses.csv file that will be created after the main
-method is run
+```ruby
+$aspley_file = "aspley.csv"
+$zillmere_file = "zillmere.csv"
+$carseldine_file = "carseldine.csv"
+$windsor_file = "windsor.csv"
+```
+Stores all csv files that are created after the main method is run
 
 `url` is the variable that stores the URL that is used to grab data.
 
@@ -135,12 +139,7 @@ grab the intended data.
 `prop_type` grabs the css selector for the type of property being
 displayed
 
-`suburb_address` grabs the address and postcode
-
-`price` gets the weekly price of each house
-
-`house_array` creates an array of `house_listings` and pushes all
-results onto the end of the array.
+`url`  
 
 # Ruby Gems
 

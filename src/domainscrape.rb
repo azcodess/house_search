@@ -1,5 +1,4 @@
 require 'nokogiri'
-require 'byebug'
 require 'httparty'
 require 'csv'
 require 'colorize'
