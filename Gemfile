@@ -20,4 +20,6 @@ gem "googlecharts", "~> 1.6"
 
 gem "test-unit", "~> 3.3"
 
+gem "tty-font", "~> 0.5.0"
+
 gem "colorize", "~> 0.8.1"

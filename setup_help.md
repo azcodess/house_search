@@ -12,8 +12,8 @@ In order to run this application you will first need to -
 
 - [Install Ruby](https://www.ruby-lang.org/en/documentation/installation/)
 - download the application
-- [Install Bundler](https://bundler.io/)
+- cd into the directory with the HouseSearch.sh file
+- type in ./HouseSearch.sh and you're ready to go
 
-After the installation is complete and the application is download perform
-a ```bundle add``` in the terminal. Once complete run 
-```ruby domainscrape.rb```
+
+
