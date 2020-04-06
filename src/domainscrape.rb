@@ -5,13 +5,13 @@ require 'csv'
 require 'colorize'
 require 'tty-font'
 
-require_relative 'house_search'
+require_relative './house_search'
 
-$file = "houses.csv"
-$aspley_file = "aspley.csv"
-$zillmere_file = "zillmere.csv"
-$carseldine_file = "carseldine.csv"
-$windsor_file = "windsor.csv"
+# $file = "houses.csv"
+# $aspley_file = "aspley.csv"
+# $zillmere_file = "zillmere.csv"
+# $carseldine_file = "carseldine.csv"
+# $windsor_file = "windsor.csv"
 
 $font = TTY::Font.new(:doom)
 
@@ -52,6 +52,27 @@ def suburb_input
     end
 end
 
+def goodbye
+  puts "Thanks for using - "
+  puts $font.write("House Search")
+end
+
+def search_complete
+  puts "would you like to search again?"
+  repeat_search = input
+  while repeat_search
+    case repeat_search
+    when "yes"
+      suburb_input
+      break
+    when "no"
+      break
+    else
+      puts "invalid input please type yes or no :)"
+      goodbye
+    end
+  end
+end
 
 def input
     gets.chomp
