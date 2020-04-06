@@ -19,3 +19,5 @@ gem "daru-view", "~> 0.2.5"
 gem "googlecharts", "~> 1.6"
 
 gem "test-unit", "~> 3.3"
+
+gem "colorize", "~> 0.8.1"

@@ -1,58 +1,66 @@
-class DomainView
-    def greeting
-        #user prompt to get information for URL
-  puts ' Hey there welcome to house_search! Enter the suburb you wish to search...'
-  puts 'please enter any of the following options - 1, 2, 3, 4'
-  puts "1. Aspley \n 2. Zillmere \n 3. Carseldine, 4. Logan"
+# class DomainView
+#     def greeting
+#         #user prompt to get information for URL
+#   puts ' Hey there welcome to house_search! Enter the suburb you wish to search...'
+#   puts 'please enter any of the following options - 1, 2, 3, 4'
+#   puts "1. Aspley \n 2. Zillmere \n 3. Carseldine, 4. Logan"
     
-  max_price_input = gets.chomp
-    end
+#   max_price_input = gets.chomp
+#     end
 
-    def input
-        gets.chomp
-    end
+#     def input
+#         gets.chomp
+#     end
 
-    def enter_aspley
-        suburb_input = "aspley"
-        post_code = "4034"
-    end
+#     def enter_aspley
+#         suburb_input = "aspley"
+#         post_code = "4034"
+#     end
 
-    def enter_zillmere
-        suburb_input= "zillmere"
-    end
+#     def enter_zillmere
+#         suburb_input= "zillmere"
+#     end
 
-    def enter_carseldine
-        suburb_input = "carseldine"
-    end
+#     def enter_carseldine
+#         suburb_input = "carseldine"
+#     end
 
-    def enter_logan
-        suburb_input = "logan"
-    end
+#     def enter_logan
+#         suburb_input = "logan"
+#     end
 
-    def input
-        input = gets.chomp
-    end
+#     def input
+#         input = gets.chomp
+#     end
 
-    def commands
-        suburb_input = gets.chomp
-    if input == "1"
-        enter_aspley
-        elsif input == "2"
-            enter_zillmere
-        elsif suburb_input == "3"
-            enter_carseldine
-        elsif suburb_input =="4"
-            enter_logan
-        else
-            puts "invalid input please type 1, 2, 3, 4 :)"
-            greeting
-            input
+#     def commands
+#         suburb_input = gets.chomp
+#     if input == "1"
+#         enter_aspley
+#         elsif input == "2"
+#             enter_zillmere
+#         elsif suburb_input == "3"
+#             enter_carseldine
+#         elsif suburb_input =="4"
+#             enter_logan
+#         else
+#             puts "invalid input please type 1, 2, 3, 4 :)"
+#             greeting
+#             input
 
-  puts "What is the most you are willing to pay?"
-    end
-url   = "https://www.domain.com.au/rent/#{suburb_input}-qld-4034/?price=0-#{max_price_input}"
+#   puts "What is the most you are willing to pay?"
+#     end
+# url   = "https://www.domain.com.au/rent/#{suburb_input}-qld-4034/?price=0-#{max_price_input}"
 
+# end
+def putsthis
+url1 = "https://www.domain.com.au/rent/#{suburb_input}"
+url2 = "-qld-#{post_code_input}/"
+url3 = "?price=0-#{max_price_input}"
+$url   = url1 + url2 + url3
+puts $url
 end
+putsthis
 
 
 #ONE MORE GEM TO INSTALL
