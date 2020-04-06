@@ -3,6 +3,7 @@ require 'byebug'
 require 'httparty'
 require 'csv'
 require 'colorize'
+require 'tty-font'
 
 $file = "houses.csv"
 $aspley_file = "aspley.csv"
@@ -10,14 +11,11 @@ $zillmere_file = "zillmere.csv"
 $carseldine_file = "carseldine.csv"
 $windsor_file = "windsor.csv"
 
-
-
-# def name
-
-# end
+$font = TTY::Font.new(:doom)
 
 def suburb_input
 #user prompt to get information for URL
+  puts $font.write("House Search")
   puts ' Hey there welcome to house_search! Please which suburb you would like to search...'.colorize(:blue)
   puts '1. Aspley'
   puts '2. Zillmere'
@@ -36,6 +34,7 @@ def suburb_input
             break
         when "3"
             puts "you've chosen Carseldine :)"
+            get_carseldine_data
             break
         when "4"
             puts "you've chosen Windsor :)"
@@ -117,9 +116,7 @@ def get_carseldine_data
     house_array = [house_listings]
     house_array.push("#{prop_type} #{price}")
 
-    p prop_type + price
-
-    CSV.open($carseldine_file, "ab", {:col_sep => "|"}) do |csv|
+      CSV.open($carseldine_file, "ab", {:col_sep => "|"}) do |csv|
       csv << [prop_type, price, suburb_address]
         end
     end
